@@ -23,6 +23,7 @@ License: MIT
 ---------------------------*//*---------------------------
 	 Foundation Grid
 ---------------------------*//* Include Foundation Flex Grid *//* Ref. http://foundation.zurb.com/sites/docs/flex-grid.html */.row {
+@import 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css'
   max-width: 60rem;
   margin-right: auto;
   margin-left: auto;

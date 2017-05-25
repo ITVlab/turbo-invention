@@ -3,7 +3,10 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex'
 import {HTTP as axios} from './axios/axios'
 import VueProgressiveImage from 'progressive-image/dist/vue'
-import 'foundation-sites/dist/js/foundation.js';
+import Buefy from 'buefy'
+
+Vue.use(Buefy)
+
 
 Vue.prototype.$http = axios;
 //Use vue route

@@ -5,17 +5,16 @@
 <template>
 
 	<transition name="slide-fade">
-		<div class="off-canvas-content" data-off-canvas-content>
-			<!-- Your page content lives here -->
-		<div class="row rt-main" v-if="loaded === 'true'" >
+
+		<div class="rt-main" v-if="loaded === 'true'" >
 
 
-			<div class="medium-12 small-12 column" v-for="post in posts" :key="post.slug">
+			<div class="column is-6" v-for="post in posts" :key="post.slug">
 
-				<div class="rt-post">
+				<div class="box">
 
-					<h2 class="rt-post-title"><router-link :to="{ name: 'post', params: { name:post.slug }}"> {{ post.title.rendered }} </router-link> </h2>
-					
+					<h2 class="rt-post-title title"><router-link :to="{ name: 'post', params: { name:post.slug }}"> {{ post.title.rendered }} </router-link> </h2>
+
 					<div class="progressive">
 
 						<img class="preview thumbnail" v-progressive="post.featured_image_src['full'][0]" :data-srcset="post.featured_image_src['srcset']" :src="post.featured_image_src['full'][0]" />
@@ -41,7 +40,7 @@
 				<a href=""  v-if="showNext" v-on:click.prevent="rtShowNext()"> more &GT; </a>
 			</div>
 		</div>
-		</div>
+
 	</transition>
 
 </template>
