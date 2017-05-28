@@ -9,15 +9,15 @@
 		<div class="rt-main" v-if="loaded === 'true'" >
 
 
-			<div class="column is-6" v-for="post in posts" :key="post.slug">
+			<div class="column is-8 is-offset-1" v-for="post in posts" :key="post.slug">
 
-				<div class="box">
+				<div class="card">
 
 					<h2 class="rt-post-title title"><router-link :to="{ name: 'post', params: { name:post.slug }}"> {{ post.title.rendered }} </router-link> </h2>
 
-					<div class="progressive">
+					<div class="progressive card-image">
 
-						<img class="preview thumbnail" v-progressive="post.featured_image_src['full'][0]" :data-srcset="post.featured_image_src['srcset']" :src="post.featured_image_src['full'][0]" />
+						<img class="preview thumbnail image is-3by2" v-progressive="post.featured_image_src['full'][0]" :data-srcset="post.featured_image_src['srcset']" :src="post.featured_image_src['full'][0]" />
 						
 					</div>
 					<div class="rt-meta">
