@@ -1,5 +1,7 @@
 <style>
-
+.post-indent{
+	text-indent: 25px;
+}
 </style>
 
 <template>
@@ -15,12 +17,12 @@
 
 					<h2 class="rt-post-title title"><router-link :to="{ name: 'post', params: { name:post.slug }}"> {{ post.title.rendered }} </router-link> </h2>
 
-					<div class="progressive card-image">
+					<figure class="progressive card-image flex" v-if="post.featured_image_src">
 
-						<img class="preview thumbnail image is-3by2" v-progressive="post.featured_image_src['full'][0]" :data-srcset="post.featured_image_src['srcset']" :src="post.featured_image_src['full'][0]" />
+						<img class="preview thumbnail image" v-progressive="post.featured_image_src['full'][0]" :data-srcset="post.featured_image_src['srcset']" :src="post.featured_image_src['full'][0]" />
 						
-					</div>
-					<div class="rt-meta">
+					</figure>
+					<div class="rt-meta subtitle post-indent">
 						<span class="posted-on">
 							Posted On
 							<span class="date" v-text="formatDate( post )">
@@ -28,7 +30,7 @@
 						</span>
 					</div>
 
-					<div class="rt-post-excerpt rt-content" v-html="post.excerpt.rendered" > </div>
+					<div class="rt-post-excerpt rt-content card-content" v-html="post.excerpt.rendered" > </div>
 
 				</div>
 
