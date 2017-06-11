@@ -15,48 +15,58 @@
     <transition name="slide-fade">
 
 
-        <div class="row rt-main" v-if="loaded === 'true'">
+        <div class="container" v-if="loaded === 'true'">
+            <section class="hero is-primary is-medium">
+                <div class="hero-body">
 
-            <div class="medium-9 small-12 column">
+                    <!--<div class="progressive">-->
+                    <!--post.better_featured_image.media_details.sizes.medium-->
+                        <!--<img class="preview" v-progressive="post.featured_image_src['full'][0]"-->
+                             <!--:data-srcset="post.featured_image_src['srcset']"-->
+                             <!--:src="post.featured_image_src['full'][0]"/>-->
 
-                <div class="rt-post">
-
-                    <h2 class="rt-post-title"> {{ post.title.rendered }}</h2>
-                    <div class="rt-meta">
-						<span class="posted-on">
+                    <!--</div>-->
+                    <div class="container has-text-centered">
+                        <h1 class="title is-2">
+                            {{ post.title.rendered }}
+                        </h1>
+                        <h2 class="subtitle is-4">
+                            <span class="posted-on">
 							Posted On
 							<span class="date" v-text="formatDate( post )">
 							</span>
 						</span>
+                        </h2>
                     </div>
+                </div>
+            </section>
 
-                    <div class="progressive">
+                    <!--<div class="progressive">-->
 
-                        <img class="preview" v-progressive="post.featured_image_src['full'][0]"
-                             :data-srcset="post.featured_image_src['srcset']"
-                             :src="post.featured_image_src['full'][0]"/>
+                        <!--<img class="preview" v-progressive="post.featured_image_src['full'][0]"-->
+                             <!--:data-srcset="post.featured_image_src['srcset']"-->
+                             <!--:src="post.featured_image_src['full'][0]"/>-->
 
-                    </div>
+                    <!--</div>-->
 
                     <div class="rt-post-content rt-content" v-html="post.content.rendered"></div>
 
                 </div>
 
-            </div>
+
 
             <!--Sidebar-->
-            <div class="medium-3 columns">
+            <!--<div class="medium-3 columns">-->
 
-                <div class="sidebar" style="width: 300px;">
-                    <div class="card-section">
-                        <h4>This is a card.</h4>
-                        <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                    </div>
-                </div>
+                <!--<div class="sidebar" style="width: 300px;">-->
+                    <!--<div class="card-section">-->
+                        <!--<h4>This is a card.</h4>-->
+                        <!--<p>It has an easy to override visual style, and is appropriately subdued.</p>-->
+                    <!--</div>-->
+                <!--</div>-->
 
-            </div>
+            <!--</div>-->
 
-        </div>
 
     </transition>
 
@@ -94,10 +104,11 @@
                         vm.loaded = 'true';
                         vm.pageTitle = vm.post.title.rendered;
                         vm.$store.commit('rtChangeTitle', vm.pageTitle);
-
+//                        vm.image = vm.post.featured_media;
+                        console.log(vm.pageTitle)
                     })
                     .catch((res) => {
-                        console(`Something wen wrong : ${res}`);
+                        console(`Something went wrong : ${res}`);
                     })
 
 
@@ -118,6 +129,9 @@
 
                     return monthNames[monthIndex] + ',' + day + ' ' + year;
                 }
+
+            },
+            getBlogImage: function () {
 
             }
         }

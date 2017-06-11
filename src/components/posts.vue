@@ -2,6 +2,9 @@
 .post-indent{
 	text-indent: 25px;
 }
+	.post-card {
+		padding:5%;
+	}
 </style>
 
 <template>
@@ -13,7 +16,7 @@
 
 			<div class="column is-8 is-offset-1" v-for="post in posts" :key="post.slug">
 
-				<div class="card">
+				<div class="card post-card">
 
 					<h2 class="rt-post-title title"><router-link :to="{ name: 'post', params: { name:post.slug }}"> {{ post.title.rendered }} </router-link> </h2>
 
