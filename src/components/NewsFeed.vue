@@ -41,7 +41,7 @@ export default {
   async created() {
     try {
       const response = await axios.get(
-        `https://data.androidtv.news/wp-json/wp/v2/posts`
+        `https://api.androidtv.news/wp-json/wp/v2/posts`
       );
       this.posts = response.data;
     } catch (e) {
